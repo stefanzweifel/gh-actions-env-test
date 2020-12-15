@@ -3,7 +3,18 @@ name: Deployment
 on: push
 
 jobs:
-  tests:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run Test Suite
+      run: echo "run test suite"
+
+
+  deploy:
     runs-on: ubuntu-latest
 
     environment:
@@ -13,6 +24,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run Tests
-      run: echo ${{ secrets.FORGE_DEPLOYMENT_URL }}
+    - name: Deploy to production
+      run: echo "use ${{ secrets.FORGE_DEPLOYMENT_URL }}"
 
