@@ -1,6 +1,6 @@
 name: Deployment
 
-on: repository_dispatch
+on: [repository_dispatch, workflow_dispatch]
 
 jobs:
 
