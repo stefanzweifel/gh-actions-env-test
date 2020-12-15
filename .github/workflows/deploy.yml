@@ -14,8 +14,24 @@ jobs:
       run: echo "run test suite"
 
 
-  deploy:
+  deploy_stag:
     runs-on: ubuntu-latest
+    needs: [test]
+
+    environment:
+      name: stag
+      url: https://stag.example.com
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Deploy to stag
+      run: echo "use ${{ secrets.FORGE_DEPLOYMENT_URL }}"
+
+
+  deploy_prod:
+    runs-on: ubuntu-latest
+    needs: [test]
 
     environment:
       name: prod
