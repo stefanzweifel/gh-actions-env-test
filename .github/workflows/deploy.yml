@@ -1,6 +1,6 @@
 name: Deployment
 
-on: push
+on: repository_dispatch
 
 jobs:
 
@@ -12,7 +12,6 @@ jobs:
 
     - name: Run Test Suite
       run: echo "run test suite"
-
 
   deploy_stag:
     runs-on: ubuntu-latest
